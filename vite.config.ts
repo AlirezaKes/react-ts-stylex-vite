@@ -1,0 +1,30 @@
+import { defineConfig } from 'vitest/config' // Import from vitest/config for correct config
+import react from '@vitejs/plugin-react'
+import { fileURLToPath } from 'url'
+import { dirname, resolve } from 'path'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+export default defineConfig({
+  plugins: [
+    react({
+      babel: {
+        configFile: resolve(__dirname, 'babel.config.js'),
+      },
+    }),
+  ],
+  resolve: {
+    alias: {
+      '@components': resolve(__dirname, 'src/components'), // Alias based on tsconfig paths
+    },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+    testTransformMode: {
+      web: ['.js', '.ts', '.jsx', '.tsx'], // Provide file extensions as strings
+    },
+  },
+})
