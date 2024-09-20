@@ -1,13 +1,13 @@
-import stylex from '@stylexjs/stylex'
+import stylex from "@stylexjs/stylex";
 
 export const style = stylex.create({
   root: {
-    boxSizing: 'border-box',
+    boxSizing: "border-box",
     margin: 0,
     padding: 0,
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: "Arial, sans-serif",
   },
   app: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
   },
-})
+});
