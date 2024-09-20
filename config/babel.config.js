@@ -1,9 +1,11 @@
 import styleXPlugin from '@stylexjs/babel-plugin'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import { resolve } from 'path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+const projectRoot = resolve(__dirname, '..')
 
 export default {
   presets: [
@@ -19,7 +21,7 @@ export default {
         test: false,
         unstable_moduleResolution: {
           type: 'commonJS',
-          rootDir: __dirname,
+          rootDir: projectRoot,
         },
       },
     ],

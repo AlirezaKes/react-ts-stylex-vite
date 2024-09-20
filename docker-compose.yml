@@ -20,14 +20,12 @@ services:
     command: npm test
     volumes:
       - .:/app
-      - /app/node_modules
     environment:
       - NODE_ENV=test
 
   eslint:
     build:
       context: .
-      dockerfile: Dockerfile
     volumes:
       - .:/app
     command: npm run lint
@@ -35,7 +33,6 @@ services:
   prettier:
     build:
       context: .
-      dockerfile: Dockerfile
     volumes:
       - .:/app
     command: npm run format
