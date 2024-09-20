@@ -9,7 +9,7 @@
     "preview": "vite preview --config config/vite.config.ts",
     "test": "vitest run --config config/vite.config.ts",
     "lint": "eslint --config config/eslint.config.js .",
-    "format": "prettier --config config/.prettierrc.json --write ."
+    "format": "prettier --config config/prettier.config.js --write ."
   },
   "dependencies": {
     "@stylexjs/stylex": "^0.7.5",
