@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  web:
+  dev:
     build:
       context: .
     volumes:
@@ -15,24 +15,11 @@ services:
     stdin_open: true
     tty: true
 
-  test:
-    build: .
-    command: npm test
-    volumes:
-      - .:/app
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80" # Nginx serves on port 80 in production
     environment:
-      - NODE_ENV=test
-
-  eslint:
-    build:
-      context: .
-    volumes:
-      - .:/app
-    command: npm run lint
-
-  prettier:
-    build:
-      context: .
-    volumes:
-      - .:/app
-    command: npm run format
+      - NODE_ENV=production

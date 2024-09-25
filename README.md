@@ -1,17 +1,29 @@
-# React + TypeScript + StyleX + Vite
+# React + TypeScript + StyleX + Vite templatedocker
 
 ## This template is Dockerized:
 
-### Building the image:
+You can either use Docker or not.
+
+## Using Docker:
+
+### Building the image and starting the container:
+
+For local development:
 
 ```
-docker-compose build
+docker-compose up dev --build
 ```
 
-### Starting the container:
+For testing production version:
 
 ```
-docker-compose up -d
+docker-compose up prod --build
+```
+
+### Starting the container on detached mode:
+
+```
+docker-compose up dev -d
 ```
 
 ### Stopping the container:
@@ -23,72 +35,85 @@ docker-compose down
 ### Running tests:
 
 ```
-docker-compose run test
+docker-compose exec dev npm run test
 ```
 
 ### Running linter:
 
 ```
-docker-compose run --rm eslint
+docker-compose exec dev npm run lint
 ```
 
 ### Apply formatting:
 
 ```
-docker-compose run --rm prettier
+docker-compose exec dev npm run format
 ```
 
-### Rebuilding the container after editing configs:
+## Not using Docker:
+
+### Starting the app:
 
 ```
-docker-compose up --build -d
+npm run dev
 ```
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Building the app:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```
+npm run build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Testing the app:
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
 ```
+npm run test
+```
+
+### Linting the app:
+
+```
+npm run lint
+```
+
+### Apply formatting:
+
+```
+npm run format
+```
+
+## Best practices: 
+
+### Folder structure:
+
+For the sake of reusability and simplicity, it is best to keep a granular structure like:
+
+src/
+│
+├── components/
+│ ├── App/
+| | └── [App component files here]
+│ └── [Other component dir/]
+│
+├── providers/
+│ └── [Provider files here]
+│
+├── hooks/
+│ └── [Custom hooks here]
+│
+├── services/
+│ └── [Service files here]
+│
+├── assets/
+│ └── [Static files (images, fonts, etc.) here]
+│
+├── utils/
+│ └── [Utility functions here]
+│
+├── contexts/
+│ └── [Context files here]
+│
+├── hooks/
+│ └── [Additional hooks if necessary]
+│
+└── index.tsx
