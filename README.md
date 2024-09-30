@@ -15,16 +15,31 @@ You may choose to containerize your application and develop within the container
 
 If you already have docker set up on your machine:
 
-### Building the image:
+### Building and starting the container:
+
+You need this if you are building the container for the first time or you have made changes to the config files and you need to rebuild the container.
+
+#### For development
+
+You can access your app via http://localhost:5173/ or the any port number you set in docker-compose dev service.
+```
+docker-compose up dev --build -d
+```
+
+#### For production
+
+If you want to build the production version of your app and test it locally.
+You can access your app via http://localhost:80/ or the any port number you set in docker-compose prod service.
 
 ```
-docker-compose build
+docker-compose up prod --build -d
 ```
 
 ### Starting the container:
 
+You can access your app via http://localhost:5173/ or the any port number you set in docker-compose.
 ```
-docker-compose up -d
+docker-compose up dev -d
 ```
 
 ### Stopping the container:
@@ -51,11 +66,6 @@ docker-compose run --rm eslint
 docker-compose run --rm prettier
 ```
 
-### Rebuilding the container after editing configs:
-
-```
-docker-compose up --build -d
-```
 
 ## Not using docker:
 
