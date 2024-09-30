@@ -4,7 +4,7 @@ The purpose of this template is to help kickstart the development by skipping th
 
 ## Using the template as the base of your project:
 
-Fork this template or copy its source files in your own repository, and simply change the name in package.json, install it and develop your own React components. 
+Fork this template or copy its source files in your own repository, and simply change the name in package.json, install it and develop your own React components.
 The index.html, main.tsx and APP.tsx are there as an example and you can inspect that things are working by launching the app in localhost on your browser.
 
 ## This template can be containerized:
@@ -70,6 +70,7 @@ npm install
 ```
 npm run dev
 ```
+
 ### Running tests:
 
 ```
@@ -94,11 +95,11 @@ npm run format
 npm run build
 ```
 
-## Best practices: 
+## Best practices:
 
 ### App structure.
 
-For the sake of simplicity, modularity, and  reusability, it is best to keep a granular structure like:
+For the sake of simplicity, modularity, and reusability, it is best to keep a granular structure like:
 
 ```
 src/
