@@ -4,6 +4,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import parser from '@typescript-eslint/parser'
+import prettier from 'eslint-plugin-prettier'
+import react from 'eslint-plugin-react'
 
 export default [
   {
@@ -14,20 +16,36 @@ export default [
       globals: globals.browser,
       parser,
       sourceType: 'module',
+      // Move parser options under languageOptions
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true, // Enable JSX support
+        },
+      },
     },
     plugins: {
+      react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
       '@typescript-eslint': tseslint,
+      prettier,
     },
     rules: {
       ...js.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      'prettier/prettier': 'error',
+      'react/prop-types': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
   // Test-specific configuration
