@@ -1,15 +1,15 @@
 # React + TypeScript + StyleX + Vite
 
-The purpose of this template is to help kickstart the development by skipping the set up and tooling steps. One can simply fork this repository, and start developing their app. In this template the base modules such as React, TS, linters, styling, and testing libraries have already been installed and configured to work out of the box. below you can find the commands for running, testing, linting, formatting, and building the app.
+The purpose of this template is to help kickstart the development by skipping the set up and tooling steps. One can simply download the source files of this template, paste them in their own repository and start developing their app. In this template the base modules such as React, TS, linters, styling, and testing libraries have already been installed and configured to work out of the box. below you can find the commands for running, testing, linting, formatting, and building the app.
 
 ## Using the template as the base of your project:
 
-Fork this template or copy its source files in your own repository, and simply change the name in package.json, install it and develop your own React components.
-The index.html, main.tsx and APP.tsx are there as an example and you can inspect that things are working by launching the app in localhost on your browser.
+Download the source files and place them in your own repository, then change the name in package.json, install it and develop your own React components.
+The main.tsx and APP.tsx are there as basic working examples.
 
 ## This template can be containerized:
 
-You may choose to containerize your application and develop within the container by using Docker or you may choose to develop on your local machine environment. This template supports both approaches. Below you can find commands for each approach.
+This template supports containerization for both development and production environments using Docker. You can choose to either develop inside a Docker container or run the app directly on your local machine. Below are the relevant commands for each approach.
 
 ## Using docker:
 
@@ -22,6 +22,7 @@ You need this if you are building the container for the first time or you have m
 #### For development
 
 You can access your app via http://localhost:5173/ or the any port number you set in docker-compose dev service.
+
 ```
 docker-compose up dev --build -d
 ```
@@ -38,6 +39,7 @@ docker-compose up prod --build -d
 ### Starting the container:
 
 You can access your app via http://localhost:5173/ or the any port number you set in docker-compose.
+
 ```
 docker-compose up dev -d
 ```
@@ -65,7 +67,6 @@ docker-compose run --rm eslint
 ```
 docker-compose run --rm prettier
 ```
-
 
 ## Not using docker:
 
